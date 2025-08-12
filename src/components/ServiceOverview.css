@@ -1,0 +1,373 @@
+.service-overview-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.service-overview-content {
+  background: white;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+  color: #333;
+}
+
+.service-overview-header {
+  background: linear-gradient(135deg, var(--service-color, #3b82f6) 0%, var(--service-color, #3b82f6) 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+  color: white;
+  padding: 40px 30px 30px;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.service-overview-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.service-overview-icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.service-overview-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.service-overview-details {
+  padding: 30px;
+}
+
+.service-detail-section {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.service-detail-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.service-detail-section h3 {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-detail-section p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.service-detail-section ul {
+  margin: 10px 0 0 0;
+  padding-left: 20px;
+  color: #666;
+}
+
+.service-detail-section li {
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.pricing-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.price-amount {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.price-usd {
+  color: #666;
+  font-size: 1rem;
+  background: #f7fafc;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.service-overview-actions {
+  padding: 25px 30px 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  background: #f8fafc;
+  border-radius: 0 0 20px 20px;
+}
+
+.cancel-btn, .pay-now-btn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.cancel-btn {
+  background: #e2e8f0;
+  color: #4a5568;
+  border: 1px solid #cbd5e0;
+}
+
+.cancel-btn:hover {
+  background: #cbd5e0;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pay-now-btn {
+  background: linear-gradient(135deg, var(--service-color, #3b82f6) 0%, var(--service-color, #3b82f6) 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.pay-now-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  filter: brightness(1.05);
+}
+
+.pay-now-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .service-overview-modal {
+    padding: 10px;
+  }
+
+  .service-overview-content {
+    margin: 10px;
+    border-radius: 15px;
+    max-height: 95vh;
+  }
+
+  .service-overview-header {
+    padding: 30px 20px 25px;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .service-overview-icon {
+    font-size: 3rem;
+  }
+
+  .service-overview-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .service-overview-details {
+    padding: 20px;
+  }
+
+  .service-overview-actions {
+    padding: 20px;
+    flex-direction: column-reverse;
+    border-radius: 0 0 15px 15px;
+  }
+
+  .cancel-btn, .pay-now-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pricing-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* Ensure consistent text colors regardless of system theme */
+.service-overview-content {
+  color: #1f2937 !important;
+}
+
+.service-detail-section h3 {
+  color: #374151 !important;
+}
+
+.service-detail-section p,
+.service-detail-section li {
+  color: #6b7280 !important;
+}
+
+.price-amount {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.price-usd {
+  background: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #6b7280 !important;
+}
+
+.service-overview-actions {
+  background: #f8fafc !important;
+}
+
+.cancel-btn {
+  background: #e5e7eb !important;
+  color: #4b5563 !important;
+  border-color: #d1d5db !important;
+}
+
+.cancel-btn:hover {
+  background: #d1d5db !important;
+  color: #374151 !important;
+}
+
+/* Dark mode support - Override if needed */
+@media (prefers-color-scheme: dark) {
+  .service-overview-content {
+    background: white !important;
+    color: #1f2937 !important;
+  }
+
+  .service-detail-section {
+    border-bottom-color: #f0f0f0;
+  }
+
+  .service-detail-section h3 {
+    color: #374151 !important;
+  }
+
+  .service-detail-section p,
+  .service-detail-section li {
+    color: #6b7280 !important;
+  }
+
+  .price-amount {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+
+  .price-usd {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #6b7280 !important;
+  }
+
+  .service-overview-actions {
+    background: #f8fafc !important;
+  }
+
+  .cancel-btn {
+    background: #e5e7eb !important;
+    color: #4b5563 !important;
+    border-color: #d1d5db !important;
+  }
+
+  .cancel-btn:hover {
+    background: #d1d5db !important;
+    color: #374151 !important;
+  }
+}
